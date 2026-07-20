@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: dbt_gt_automotive
+    database: GARRET_DEV
+    schema: ANALYTICS
+    tables:
+      - name: AUTOMOBILE_DATASET
