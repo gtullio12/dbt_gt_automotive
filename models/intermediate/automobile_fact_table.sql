@@ -16,6 +16,7 @@ with
 
     transformed_fact_table as (
         select
+            *,
             year(current_date()) - year as car_age,
             case
                 when horsepower is null or horsepower = 0
