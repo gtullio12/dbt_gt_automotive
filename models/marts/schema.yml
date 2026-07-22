@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: agg_make_model_value
+    description: "Aggregated pricing and condition metrics per make and model combination. Used to identify which vehicles hold their value best."
+    columns:
+      - name: make
+        description: "Vehicle manufacturer"
+        data_tests:
+          - not_null
+      - name: model
+        description: "Vehicle model name"
+        data_tests:
+          - not_null
+      - name: average_selling_price
+        description: "Average selling price across all listings for this make and model"
+        data_tests:
+          - not_null
+      - name: average_car_age
+        description: "Average age in years of vehicles for this make and model"
+        data_tests:
+          - not_null
+      - name: average_mileage
+        description: "Average mileage across all listings for this make and model"
+        data_tests:
+          - not_null
+      - name: average_condition_score
+        description: "Average condition score 0-100 for this make and model"
+        data_tests:
+          - not_null
+      - name: listing_count
+        description: "Total number of listings for this make and model"
+        data_tests:
+          - not_null
+
+  - name: agg_location_price_index
+    description: "Average selling price and price index by location. Shows which regions command a premium relative to the overall market average."
+    columns:
+      - name: location
+        description: "State or region where the car was sold"
+      - name: avg_selling_price
+        description: "Average selling price for this location"
+        data_tests:
+          - not_null
+      - name: listing_count
+        description: "Total number of listings in this location"
+        data_tests:
+          - not_null
+      - name: price_index
+        description: "Location average price divided by overall average price. Above 1.0 indicates a premium market"
+        data_tests:
+          - not_null
+
+  - name: agg_fuel_type
+    description: "Performance and pricing metrics grouped by fuel type. Compares electric, hybrid, petrol, and diesel vehicles across key dimensions."
+    columns:
+      - name: fuel_type
+        description: "Type of fuel used by the vehicle"
+        data_tests:
+          - not_null
+      - name: avg_selling_price
+        description: "Average selling price for this fuel type"
+        data_tests:
+          - not_null
+      - name: avg_fuel_efficiency
+        description: "Average fuel efficiency in MPG for this fuel type"
+        data_tests:
+          - not_null
+      - name: avg_horsepower
+        description: "Average horsepower for this fuel type"
+        data_tests:
+          - not_null
+      - name: avg_torque
+        description: "Average torque for this fuel type"
+        data_tests:
+          - not_null
+      - name: listing_count
+        description: "Total number of listings for this fuel type"
+        data_tests:
+          - not_null
