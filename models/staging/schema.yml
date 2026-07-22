@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: stg_automobile_dataset
+    description: "Cleaned and standardized used car listings from the raw automobile dataset"
+    columns:
+      - name: make
+        description: "Vehicle manufacturer"
+        data_tests:
+          - not_null
+      - name: model
+        description: "Vehicle model name"
+        data_tests:
+          - not_null
+      - name: year
+        description: "Manufacturing year of the vehicle"
+        data_tests:
+          - not_null
+      - name: fuel_type
+        description: "Type of fuel used by the vehicle"
+        data_tests:
+          - not_null
+      - name: transmission
+        description: "Transmission type. Manual or Automatic. Nullable"
+      - name: engine_size
+        description: "Engine displacement in liters. Nullable"
+      - name: mileage
+        description: "Total distance driven"
+        data_tests:
+          - not_null
+      - name: horsepower
+        description: "Engine power output in HP. Nullable"
+      - name: selling_price
+        description: "Listed selling price in USD"
+        data_tests:
+          - not_null
+      - name: accident_history
+        description: "Boolean flag indicating accident history. 0 no accidents, 1 has accidents, null unknown"
+      - name: owners
+        description: "Number of previous owners"
+        data_tests:
+          - not_null
+      - name: service_history
+        description: "Service record status. Full Service, Partial Service, No Service, or null"
+      - name: body_type
+        description: "Vehicle body type such as SUV, Sedan, Truck. Nullable"
+      - name: color
+        description: "Exterior color of the vehicle. Nullable"
+      - name: drivetrain
+        description: "Drivetrain type such as AWD, FWD, RWD"
+        data_tests:
+          - not_null
+      - name: fuel_efficiency
+        description: "Fuel efficiency in MPG. Nullable"
+      - name: location
+        description: "State or region where the car was sold. Nullable"
+      - name: torque
+        description: "Engine torque output. Nullable"

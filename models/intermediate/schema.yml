@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: automobile_fact_table
+    description: "One row per car listing enriched with calculated fields for pricing analysis"
+    columns:
+      - name: make
+        description: "Vehicle manufacturer"
+        data_tests:
+          - not_null
+      - name: model
+        description: "Vehicle model name"
+        data_tests:
+          - not_null
+      - name: year
+        description: "Manufacturing year of the vehicle"
+        data_tests:
+          - not_null
+      - name: selling_price
+        description: "Listed selling price in USD"
+        data_tests:
+          - not_null
+      - name: mileage
+        description: "Total distance driven"
+        data_tests:
+          - not_null
+      - name: owners
+        description: "Number of previous owners"
+        data_tests:
+          - not_null
+      - name: car_age
+        description: "Age of the vehicle in years calculated from current year minus manufacturing year"
+        data_tests:
+          - not_null
+      - name: mileage_bucket
+        description: "Mileage grouped into LOW under 20K, MEDIUM 20K-100K, HIGH over 100K"
+        data_tests:
+          - not_null
+      - name: value_bucket
+        description: "Selling price segment based on dataset price distribution. LOW, MID, or HIGH"
+        data_tests:
+          - not_null
+      - name: condition_score
+        description: "Quality score 0-100 derived from accident history, service history, and number of owners"
+        data_tests:
+          - not_null
+      - name: price_per_horsepower
+        description: "Selling price divided by horsepower. Null when horsepower is null or zero"
+      - name: accident_history
+        description: "Boolean flag indicating accident history. 0 no accidents, 1 has accidents, null unknown"
+      - name: service_history
+        description: "Service record status. Full Service, Partial Service, No Service, or null"
+      - name: horsepower
+        description: "Engine power output in HP. Nullable"
+      - name: fuel_type
+        description: "Type of fuel used by the vehicle"
+        data_tests:
+          - not_null
+      - name: drivetrain
+        description: "Drivetrain type such as AWD, FWD, RWD"
+        data_tests:
+          - not_null
